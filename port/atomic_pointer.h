@@ -48,8 +48,8 @@ namespace port {
 // http://msdn.microsoft.com/en-us/library/ms684208(v=vs.85).aspx
 #define LEVELDB_HAVE_MEMORY_BARRIER
 
-// Gcc on x86
-#elif defined(ARCH_CPU_X86_FAMILY) && defined(__GNUC__)
+// GCC on x86, PPC, PPC64, MIPS, MIPS64, s390, S390x, ARM
+#elif defined(__GNUC__)
 inline void MemoryBarrier() {
   // See http://gcc.gnu.org/ml/gcc/2003-04/msg01180.html for a discussion on
   // this idiom. Also see http://en.wikipedia.org/wiki/Memory_ordering.
