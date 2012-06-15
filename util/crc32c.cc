@@ -325,7 +325,9 @@ uint32_t Extend(uint32_t crc, const char* buf, size_t size) {
   }
 #undef STEP4
 #undef STEP1
-  return l ^ 0xffffffffu;
+
+  l = l ^ 0xffffffffu;
+  return DecodeFixed32(reinterpret_cast<const char*>(&l));
 }
 
 }  // namespace crc32c
